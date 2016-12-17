@@ -19,7 +19,7 @@ server.use( function timestamp ( req, res, next ) {
 });
 
 // Incoming mail route
-server.post( 'brow', function( req, res ) {
+server.post( '/brow', function( req, res ) {
   
   var parsedMessage = JSON.parse( req.body );
   
