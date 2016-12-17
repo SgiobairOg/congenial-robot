@@ -7,7 +7,8 @@
 // eventual processing into useful geo-referenced data streams.
 
 var express = require('express');
-var port = process.env.PORT || '8080'
+var port = process.env.PORT || '8080';
+var mail = process.env.CLOUDMAILIN_FORWARD_ADDRESS || 'Unset';
 
 var server = express();
 
@@ -32,4 +33,5 @@ server.post( 'brow', function( req, res ) {
 // Listen up
 server.listen( port );
 
-console.log(`Server is awaiting mail on port: ${port}`);
+console.log(`Server is awaiting mail on port: ${ port }`);
+console.log(`Incoming mail on ${ mail }`);
