@@ -21,6 +21,8 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
+  console.table(req);
+  
   var parsedHeaders = req.headers;
   
   console.log( `From: ${parsedHeaders['From']}` );
