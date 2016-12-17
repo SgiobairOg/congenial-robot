@@ -1,0 +1,23 @@
+{
+  "name": "congenial-robot",
+  "version": "0.0.1",
+  "description": "Express server for receiving and processing mail.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SgiobairOg/congenial-robot.git"
+  },
+  "author": "Jason Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SgiobairOg/congenial-robot/issues"
+  },
+  "homepage": "https://github.com/SgiobairOg/congenial-robot#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
