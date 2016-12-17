@@ -7,12 +7,25 @@
 // eventual processing into useful geo-referenced data streams.
 
 var express = require('express');
-var port = process.env.PORT || '8080';
-var mail = process.env.CLOUDMAILIN_FORWARD_ADDRESS || 'Unset';
+var bodyParser = require( 'body-parser' );
+var methodOverride = require( 'method-override' );
 
-const util = require('util');
+const port = process.env.PORT || '8080';
+const mail = process.env.CLOUDMAILIN_FORWARD_ADDRESS || 'Unset';
+
+const util = require('util');  // TEMP
 
 var server = express();
+
+// get all data of body (POST) parameters
+//  parse application/json
+server.use( bodyParser.json() );
+
+//  parse application/vdn.api+json as json
+server.use( bodyParser.json( { type: 'application/vnd.api+json' } ) );
+
+//  parse application/x-www-form-urlencoded
+server.use( bodyParser.urlencoded( { extended: true } ) );
 
 // Logging middleware
 server.use( function timestamp ( req, res, next ) {
@@ -23,9 +36,7 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
-  console.log(util.inspect(req.body, { showHidden: true, depth: null }));
-  
-  var parsedHeaders = req.headers;
+  var parsedHeaders = req.body.headers;
   
   console.log( `From: ${parsedHeaders['From']}` );
   console.log( `Subject: ${parsedHeaders['Subject']}` );
