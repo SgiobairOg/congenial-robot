@@ -13,8 +13,6 @@ var methodOverride = require( 'method-override' );
 const port = process.env.PORT || '8080';
 const mail = process.env.CLOUDMAILIN_FORWARD_ADDRESS || 'Unset';
 
-const util = require('util');  // TEMP
-
 var server = express();
 
 // get all data of body (POST) parameters
