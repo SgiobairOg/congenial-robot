@@ -41,7 +41,7 @@ server.post( '/brow', function( req, res ) {
   console.log( `From: ${parsedHeaders['From']}` );
   console.log( `Subject: ${parsedHeaders['Subject']}` );
   
-  res.status(200).send( "Message received." );
+  res.status(200).send( `Message received from: ${parsedHeaders['From']}.` );
   
 });
 
