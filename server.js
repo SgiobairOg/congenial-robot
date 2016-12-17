@@ -21,9 +21,7 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
-  console.log( `Body: ${req}` );
-  
-  var parsedMessage = JSON.parse( req.body);
+  var parsedMessage = JSON.parse( req);
   
   console.log( `From: ${parsedMessage.headers['From']}` );
   console.log( `Subject: ${parsedMessage.headers['Subject']}` );
