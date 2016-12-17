@@ -23,7 +23,7 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
-  console.log(util.inspect(req, { showHidden: true, depth: null }));
+  console.log(util.inspect(req.body, { showHidden: true, depth: null }));
   
   var parsedHeaders = req.headers;
   
