@@ -21,11 +21,10 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
-  var parsedMessage = req;
-  console.log( JSON.stringify(parsedMessage, null, 4) );
+  var parsedHeaders = req.headers;
   
-  console.log( `From: ${parsedMessage.headers['From']}` );
-  console.log( `Subject: ${parsedMessage.headers['Subject']}` );
+  console.log( `From: ${parsedHeaders['From']}` );
+  console.log( `Subject: ${parsedHeaders['Subject']}` );
   
   res.status(200).send( "Message received." );
   
