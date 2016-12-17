@@ -10,6 +10,8 @@ var express = require('express');
 var port = process.env.PORT || '8080';
 var mail = process.env.CLOUDMAILIN_FORWARD_ADDRESS || 'Unset';
 
+const util = require('util');
+
 var server = express();
 
 // Logging middleware
@@ -21,7 +23,7 @@ server.use( function timestamp ( req, res, next ) {
 // Incoming mail route
 server.post( '/brow', function( req, res ) {
   
-  console.table(req);
+  console.log(util.inspect(req, { showHidden: true, depth: null }));
   
   var parsedHeaders = req.headers;
   
